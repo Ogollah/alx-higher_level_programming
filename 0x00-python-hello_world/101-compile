@@ -4,16 +4,16 @@ import py_compile
 import os
 import sys
 
+file = os.getenv('PYFILEc')
 if file is None:
-    print("Error: PYFILE environment variable is not set.")
+    print("Error: PYFILEc env variable is not set.")
     sys.exit(1)
 
-file = os.getenv('PYFILE')
-pc_file = file + 'c'
+pc_file = file
 try:
     py_compile.compile(file, pc_file)
     print(f"Successfully compiled {file} to {pc_file}.")
 except py_compile.PyCompilerError as error:
-    print(f"Error occurred while compiling {file}:")
+    print(f"Error compiling {file}:")
     print(error.msg)
     sys.exit(1)
