@@ -9,6 +9,7 @@ if file is None:
     exit(1)
 
 pc_file = file + 'c'
+
 try:
     py_compile.compile(file, pc_file)
     print(f"Success: compiled {file} to {pc_file}.")
