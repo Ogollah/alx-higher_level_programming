@@ -1,18 +1,2 @@
-#!/usr/bin/python3
-
-import py_compile
-import os
-
-file = os.getenv('PYFILE')
-if file is None:
-    print("Error: PYFILE env var not set.")
-    exit(1)
-
-pc_file = file + 'c'
-try:
-    py_compile.compile(file, pc_file)
-    print(f"Success: compiled {file} to {pc_file}.")
-except py_compile.PyCompilerError as error:
-    print(f"Error: compile {file}:")
-    print(error.msg)
-    exit(1)
+#!/bin/bash
+python3 -m compileall -b $PYFILE i
