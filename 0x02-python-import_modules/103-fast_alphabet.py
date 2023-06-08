@@ -1,2 +1,2 @@
 #!/usr/bin/python3
-print(''.join(chr(x) for x in range(ord('A'), ord('Z')+1)))
+print(*map(chr, range(ord('A'), ord('Z')+1)), sep='')
