@@ -1,2 +1,6 @@
 #!/usr/bin/python3
-print(*map(chr, range(ord('A'), ord('Z')+1)), sep='')
+import string
+import sys
+
+
+sys.stdout.write(string.ascii_uppercase + '\n')
