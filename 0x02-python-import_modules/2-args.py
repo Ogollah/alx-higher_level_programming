@@ -15,6 +15,8 @@ def main():
     else:
         print("arguments:", end='\n')
         for i, arg in enumerate(args, start=1):
+            if i == 0:
+                continue
             print(f"{i}: {arg}")
 
 
