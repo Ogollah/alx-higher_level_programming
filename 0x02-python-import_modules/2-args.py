@@ -11,7 +11,7 @@ def main():
         print(".", end='\n\n')
     elif num_args == 1:
         print("argument:", end='\n')
-        print("1:", args[0])
+        print(f"{num_args}:", args[0])
     else:
         print("arguments:", end='\n')
         for i, arg in enumerate(args, start=1):
