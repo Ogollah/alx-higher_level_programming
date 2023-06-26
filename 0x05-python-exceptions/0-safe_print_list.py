@@ -4,7 +4,7 @@ def safe_print_list(my_list=None, x=0):
 
     if my_list is None:
         my_list = []
-    
+
     printed_elements = 0
     for index, element in enumerate(my_list):
         if index >= x:
