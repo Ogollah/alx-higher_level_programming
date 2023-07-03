@@ -6,7 +6,8 @@
 class Rectangle:
     """Defining a rectangle class """
 
-    def __init__(self, width=0, height=0) -> None:
+    def __init__(self, width=0, height=0):
+        """ Initialize the width and the heigth of the rectangle. """
         self._width = 0
         self._height = 0
         self._height = height
@@ -35,9 +36,3 @@ class Rectangle:
         if value < 0:
             raise ValueError("width must be >= 0")
         self._height = value
-
-    def area(self):
-        return self._width * self._height
-
-    def perimeter(self):
-        return 2 * (self._width + self._height)
