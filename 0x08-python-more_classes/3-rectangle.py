@@ -49,3 +49,13 @@ class Rectangle:
         if self._width == 0 or self._height == 0:
             return 0
         return 2 * (self._width + self._height)
+
+    def __str__(self):
+        """ String representation of the rectangle."""
+
+        if self._width == 0 or self._height == 0:
+            return ""
+        rectangle_str = ""
+        for _ in range(self._height):
+            rectangle_str += "#" * self._width + "\n"
+        return rectangle_str
