@@ -18,8 +18,8 @@ class Rectangle:
         """String representation of the rectangle."""
         if self._height == 0 or self._width == 0:
             return ""
-        rectangle_str = ("#" * self._width + "\n") * self._height
-        return rectangle_str
+        st = ("#" * self._width + "\n") * (self._height - 1) + "#"
+        return st * self._width
 
     @property
     def width(self):
