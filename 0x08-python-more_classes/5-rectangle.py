@@ -64,3 +64,7 @@ class Rectangle:
 
         return "{:s}({:d}, {:d})".format((type(self).__name__),
                                          self._width, self._height)
+
+    def __del__(self):
+        """kill Rectangle"""
+        print("Bye rectangle...")
