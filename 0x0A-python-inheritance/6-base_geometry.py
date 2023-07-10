@@ -1,0 +1,18 @@
+#!/usr/bin/python3
+"""
+BaseGeometry class.
+"""
+
+
+class BaseGeometry:
+
+    def area(self):
+        """
+        Compute the area of the geometry shape.
+
+        Raises:
+            Exception: Indicating that the area()
+            method is not implemented.
+
+        """
+        raise Exception("area() is not implemented")
