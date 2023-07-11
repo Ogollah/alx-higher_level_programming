@@ -28,11 +28,32 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    def to_json(self):
+    def to_json(self, attrs=None):
         """
         Retrieve a dictionary representation of the Student instance.
+
+        Args:
+            attrs (list, optional): List of attribute names to retrieve.
+                If None, retrieve all attributes.
 
         Returns:
             dict: A dictionary representation of the Student instance.
         """
-        return self.__dict__
+        if attrs is None:
+            return self.__dict__
+        else:
+            return {attr: getattr(self, attr)
+                    for attr in attrs if hasattr(self, attr)}
+
+    def reload_from_json(self, json):
+        """
+        Replace all attributes of the Student
+        instance with values from a dictionary.
+
+        Args:
+            json (dict): Dictionary containing
+            attribute names and values.
+
+        """
+        for key, value in json.items():
+            setattr(self, key, value)
