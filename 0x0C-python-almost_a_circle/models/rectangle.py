@@ -200,6 +200,22 @@ class Rectangle(Base):
         if 'y' in kwargs:
             self.__y = kwargs['y']
 
+    def to_dictionary(self):
+        """
+        Returns the dictionary representation of the Rectangle instance.
+
+        Returns:
+            dict: A dictionary containing the attributes
+            id, width, height, x, and y.
+        """
+        return {
+            'id': self.id,
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
+        }
+
     def __str__(self):
         """
         Returns the string representation
