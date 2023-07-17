@@ -6,6 +6,7 @@ The Base class.
 
 
 import json
+import csv
 
 
 class Base:
@@ -141,5 +142,66 @@ class Base:
                 json_data = file.read()
                 list_dicts = cls.from_json_string(json_data)
                 return [cls.create(**dict_obj) for dict_obj in list_dicts]
+        except FileNotFoundError:
+            return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """
+        Serializes and saves a list of instances to a CSV file.
+
+        Args:
+            list_objs (list): A list of instances.
+
+        Raises:
+            TypeError: If list_objs is not a list of instances.
+        """
+        if not isinstance(list_objs, list):
+            raise TypeError("list_objs must be a list of instances")
+
+        filename = cls.__name__ + ".csv"
+        with open(filename, 'w', newline='') as csvfile:
+            writer = csv.writer(csvfile)
+
+            for obj in list_objs:
+                if cls.__name__ == "Rectangle":
+                    row_data = [obj.id, obj.width, obj.height, obj.x, obj.y]
+                elif cls.__name__ == "Square":
+                    row_data = [obj.id, obj.size, obj.x, obj.y]
+                else:
+                    raise ValueError("Unknown class type")
+
+                writer.writerow(row_data)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """
+        Deserializes and loads instances from a CSV file.
+
+        Returns:
+            list: A list of instances based on the data in the CSV file.
+
+        Raises:
+            FileNotFoundError: If the file does not exist.
+        """
+        filename = cls.__name__ + ".csv"
+        try:
+            with open(filename, 'r', newline='') as csvfile:
+                reader = csv.reader(csvfile)
+                instance_list = []
+
+                for row in reader:
+                    if cls.__name__ == "Rectangle":
+                        instance = cls(int(row[1]), int(row[2]),
+                                       int(row[3]), int(row[4]), int(row[0]))
+                    elif cls.__name__ == "Square":
+                        instance = cls(int(row[1]), int(row[2]),
+                                       int(row[3]), int(row[0]))
+                    else:
+                        raise ValueError("Unknown class type")
+
+                    instance_list.append(instance)
+
+                return instance_list
         except FileNotFoundError:
             return []
