@@ -1,10 +1,9 @@
 #!/usr/bin/node
 
-const args = process.argv.slice(2);
-
-const updatedIntegers = args.map((arg) => {
-  const num = parseInt(arg);
-  return num === 12 ? 89 : num;
-});
-
-console.log(updatedIntegers.join(' '));
+const myObject = {
+  type: 'object',
+  value: 12
+};
+console.log(myObject);
+myObject.value = 89;
+console.log(myObject);
