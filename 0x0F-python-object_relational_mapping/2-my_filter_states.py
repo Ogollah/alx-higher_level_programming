@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Search for states by name in a MySQL database."""
+"""Search for states by name in MySQL database."""
 
 import MySQLdb
 import sys
