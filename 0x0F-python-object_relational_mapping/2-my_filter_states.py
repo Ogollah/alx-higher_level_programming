@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """Search for states by name in a MySQL database."""
 
 import MySQLdb
